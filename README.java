@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class PRGString here.
  * 
@@ -15,12 +14,17 @@ public class PRGString
 {
 	
     public static void main(String[] args){
+    	
+    	int []a = {3,4,8,16,32};
         
         if (esPrefijo("queso","quesoss")) System.out.println("es prefijo");
         else System.out.println("no es prefijo");
         
         if (esPalindromo("Eva usaba rimel y le miraba suavÉ")) System.out.println("es Palindromo");
         else System.out.println("no es Palindromo");
+        
+        if (dobleAnterior(a)) System.out.println("cada elemento es el doble del anterior");
+        else System.out.println("cada elemento NO es el doble del anterior");
         
     }
     
@@ -82,6 +86,23 @@ public class PRGString
 		}
     	return c;
     }
+    
+    
+    private static boolean dobleAnterior (int [] a,int fin) {
+    	
+        if( fin == 0 )
+            return true;
+        else 
+            return a[fin]/2==a[fin-1] && dobleAnterior(a,fin-1);
+    }
+    
+    private static boolean dobleAnterior(int [] a){
+    	return dobleAnterior ( a,a.length-1);
+    }
+    
+    
+
        
 }
+
 
