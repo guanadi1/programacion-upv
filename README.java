@@ -100,7 +100,11 @@ public class PRGString
     	return dobleAnterior ( a,a.length-1);
     }
     
-    
+     private static boolean contadorElementos (int [] a,int min , int max) {
+    	
+	 
+	 
+ }
 
        
 }
