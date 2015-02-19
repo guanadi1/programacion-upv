@@ -1,3 +1,4 @@
+
 /**
  * Write a description of class PRGString here.
  * 
@@ -16,6 +17,7 @@ public class PRGString
     public static void main(String[] args){
     	
     	int []a = {3,4,8,16,32};
+    	int []b = {3,4,8,4,32,1,8,4};
         
         if (esPrefijo("queso","quesoss")) System.out.println("es prefijo");
         else System.out.println("no es prefijo");
@@ -25,6 +27,11 @@ public class PRGString
         
         if (dobleAnterior(a)) System.out.println("cada elemento es el doble del anterior");
         else System.out.println("cada elemento NO es el doble del anterior");
+        
+        int min=5;
+        int max=30;       
+        System.out.println("se encuentran dentro del rango " + min +" y "+max +" = "+ contadorElementos(b,min,max) );
+        
         
     }
     
@@ -100,12 +107,22 @@ public class PRGString
     	return dobleAnterior ( a,a.length-1);
     }
     
-     private static boolean contadorElementos (int [] a,int min , int max) {
-    	
+ private static int contadorElementos (int [] a,int min , int max, int fin, int cont ) {  	
 	 
+	 if (fin==0){
+	  return cont;
+	 }
+	 if( a[fin]>=min && a[fin]<=max){
+		 return contadorElementos(a, min, max, fin-1, cont+1);
+	 }else{
+		 return contadorElementos(a, min, max, fin-1,cont);
+	 }
 	 
  }
-
+ 
+ private static int contadorElementos (int [] a,int min , int max){
+	 return contadorElementos (a,min ,max, a.length-1, 0);
+ }
        
 }
 
